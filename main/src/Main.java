@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        /**
+        /*
          * This is the entry point of the program, this is where the user will be prompted for all input
          * using scanner. The data will then be used to instantiate a "Decision" object on which "DecisionAlgorithm"
          * will be run on to produce and output.

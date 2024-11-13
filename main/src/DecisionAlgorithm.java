@@ -12,6 +12,7 @@ public class DecisionAlgorithm {
      * This is where the flowchart will be implemented
      */
 
+    // TODO: finish the implementation of the algorithm (flowchart)
     public static String decisionSupport(Decision decision){
         return "";
     }

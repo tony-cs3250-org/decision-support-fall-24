@@ -1,3 +1,5 @@
+package main.src;
+
 /**
  * Decision-Support-Program
  * CS3250 - MSU Fall 2024
@@ -11,7 +13,7 @@ public class DecisionAlgorithm {
      */
 
     public static String decisionSupport(Decision decision){
-        return '';
+        return "";
     }
 
 } // end DecisionAlgorithm

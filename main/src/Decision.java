@@ -4,6 +4,11 @@
  * @Author: Tony Sandoval
  * Description: A data class to hold user input
  */
+package main.src;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class Decision {
     /**

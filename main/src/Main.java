@@ -1,9 +1,16 @@
+package main.src;
+
+import java.util.Scanner;
+
 /**
  * Decision-Support-Program
  * CS3250 - MSU Fall 2024
  * @Author: Tony Sandoval
  */
+
+
 public class Main {
+
     public static void main(String[] args) {
         /**
          * This is the entry point of the program, this is where the user will be prompted for all input
@@ -14,16 +21,19 @@ public class Main {
          * - T.S
          */
 
-        System.out.println('Welcome to the Decision-Support-Program!' +
-                'Start by entering your problem statement and the multiple decisions you are considering . . .'
+        System.out.print("Welcome to the Decision-Support-Program! \n" +
+                        "Start by entering your problem statement and the multiple decisions you are considering . . ."
                 );
         // run user input to instantiate a Decision object
         // this will return a 'decision' object which will be the parameter to the decisionAlgorithm
-        userInputProblem = userInput();
+        Decision userInputProblem = userInput();
 
         // This is where the object will be passed into the algorithm solver
-        DecisionAlgorithm dscAlgorithm = new DecisionAlgorithm();
-        solution = dscAlgorithm.decisionSupport(userInputProblem);
+        String solution = DecisionAlgorithm.decisionSupport(userInputProblem);
+
+        // return the solution
+        System.out.println("Here is the best decision: ");
+        // TODO: format the solution to print out
 
 
 
@@ -36,8 +46,13 @@ public class Main {
     /**
      * This is where the private methods will live
      */
-
+    // TODO: finish the implementation of the userInput() method. Return a decision object
     private static Decision userInput() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter your problem statement: ");
+        String problemStatement = sc.nextLine();
+
+
         return decision;
     }
 

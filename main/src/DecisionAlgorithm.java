@@ -30,7 +30,6 @@ public class DecisionAlgorithm {
         for (String factor: factors) {
             double factorSum = decision.getFactors().get(factor);
 
-
         }
         // hashmap to hold the sum of the columns
         // calculateRations()

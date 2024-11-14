@@ -1,3 +1,5 @@
+package main.src;
+
 import java.util.Scanner;
 
 public class Idiotproofing{

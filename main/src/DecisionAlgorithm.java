@@ -41,8 +41,31 @@ public class DecisionAlgorithm {
         return "";
     }
 
-    private static double calculateRatios(double[] sums, List<HashMap<String, Double>> decisionData) {
-        return 0.0;
+    public static List<HashMap<String, Double>> calculateRatios(double[][] data) {
+        List<HashMap<String, Double>> ratioData = new ArrayList<>();
+
+        int numRows = data.length;
+        int numCols = data[0].length;
+
+        // Step 1: Calculate column sums
+        double[] columnSums = new double[numCols];
+        for (int col = 0; col < numCols; col++) {
+            for (int row = 0; row < numRows; row++) {
+                columnSums[col] += data[row][col];
+            }
+        }
+
+        // Step 2: Calculate ratios for each cell and store in HashMap
+        for (int row = 0; row < numRows; row++) {
+            HashMap<String, Double> rowRatios = new HashMap<>();
+            for (int col = 0; col < numCols; col++) {
+                double ratio = data[row][col] / columnSums[col];
+                rowRatios.put("Column " + col, ratio);
+            }
+            ratioData.add(rowRatios);
+        }
+
+        return ratioData;
     }
 
     private static double solveDecisionNumber() {

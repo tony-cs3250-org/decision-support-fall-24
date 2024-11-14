@@ -47,13 +47,19 @@ public class Main {
      * This is where the private methods will live
      */
     // TODO: finish the implementation of the userInput() method. Return a decision object
-    private static Decision userInput() {
+    private static String userInput() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter your problem statement: ");
         String problemStatement = sc.nextLine();
 
 
-        return decision;
+        return "";
     }
+
+    // TODO: finish the implementation of the userOutput() method. Return a decision object
+    private static String userOutput() {
+        return "";
+    }
+
 
 } // end Main

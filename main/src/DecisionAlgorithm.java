@@ -21,7 +21,7 @@ public class DecisionAlgorithm {
      */
 
     // TODO: finish the implementation of the algorithm (flowchart)
-    public static String decisionSupport(Decision decision){
+    public static String decisionSupport(String decision){
         // get the object
         // loop through every factor & sum the columns
         Iterable<String> factors = decision.getFactors().keySet();

@@ -26,7 +26,7 @@ public class Main {
                 );
         // run user input to instantiate a Decision object
         // this will return a 'decision' object which will be the parameter to the decisionAlgorithm
-        Decision userInputProblem = userInput();
+        String userInputProblem = userInput();
 
         // This is where the object will be passed into the algorithm solver
         String solution = DecisionAlgorithm.decisionSupport(userInputProblem);

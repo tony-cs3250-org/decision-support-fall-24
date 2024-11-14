@@ -9,6 +9,7 @@ package main.src;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Decision {
     /**
@@ -19,17 +20,19 @@ public class Decision {
 
     private String ProblemStatement;
     private List<String> alternatives; // to hold the different decisions
-    private List<String> factors; // to hold the different factors
+    private Map<String, Double> factors; // to hold the different factors
     // a dynamic list with a hashmap to represent each alternative with its own set of factors and weights
     private List<HashMap<String, Double>> decisionData = new ArrayList<>();
 
     // constructor
-    public Decision(String problemStatement, List<String> alternatives, List<String> factors, List<HashMap<String, Double>> decisionData) {
+
+
+    public Decision(String problemStatement, List<String> alternatives, Map<String, Double> factors, List<HashMap<String, Double>> decisionData) {
         ProblemStatement = problemStatement;
         this.alternatives = alternatives;
         this.factors = factors;
         this.decisionData = decisionData;
-    } // end constructor
+    }
 
     public String getProblemStatement() {
         return ProblemStatement;
@@ -47,11 +50,11 @@ public class Decision {
         this.alternatives = alternatives;
     }
 
-    public List<String> getFactors() {
+    public Map<String, Double> getFactors() {
         return factors;
     }
 
-    public void setFactors(List<String> factors) {
+    public void setFactors(Map<String, Double> factors) {
         this.factors = factors;
     }
 

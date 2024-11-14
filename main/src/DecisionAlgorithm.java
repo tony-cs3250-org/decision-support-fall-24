@@ -32,7 +32,7 @@ public class DecisionAlgorithm {
 
         }
         // hashmap to hold the sum of the columns
-        // calculateRations()
+        // calculateRatios()
         // solveDecisionNumber()
         // normalize data
         // return a new hashmap with the choices and their normalized values
@@ -40,7 +40,7 @@ public class DecisionAlgorithm {
         return "";
     }
 
-    private static double calculateRatios() {
+    private static double calculateRatios(double[] sums, List<HashMap<String, Double>> decisionData) {
         return 0.0;
     }
 
@@ -48,8 +48,20 @@ public class DecisionAlgorithm {
         return 0.0;
     }
 
-    private static double normalize() {
-        return 0.0;
+
+    public static double[] normalize(double[] data) {
+        double max = data[0];
+        // Find the maximum value
+        for (double num : data) {
+            if (num > max) {max = num;}
+        }
+        // Normalize each value by dividing by the maximum
+        double[] normalizedData = new double[data.length];
+        for (int i = 0; i < data.length; i++) {
+            normalizedData[i] = data[i] / max;
+        }
+
+        return normalizedData;
     }
 
 } // end DecisionAlgorithm

@@ -1,8 +1,6 @@
 package main.src;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Decision-Support-Program
@@ -28,13 +26,13 @@ public class Main {
                 );
         // run user input to instantiate a Decision object
         // this will return a 'decision' object which will be the parameter to the decisionAlgorithm
-        String userInputProblem = userInput();
+        Decision userInputProblem = userInput();
 
         // This is where the object will be passed into the algorithm solver
-        String solution = DecisionAlgorithm.decisionSupport(userInputProblem);
+        // decision = DecisionAlgorithm.decisionSupport(userInputProblem);
 
         // return the solution
-        System.out.println("Here is the best decision: ");
+        System.out.println("Here is the best decision: " + userInputProblem.toString());
         // TODO: format the solution to print out
 
 
@@ -49,24 +47,43 @@ public class Main {
      * This is where the private methods will live
      */
     // TODO: finish the implementation of the userInput() method. Return a decision object
-    static String userInput() {
+    static Decision userInput() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter your problem statement: ");
+        System.out.println("Enter the problem statement:");
         String problemStatement = sc.nextLine();
-        System.out.println("Enter the choices for your problem statement. Clic");
-        List<String> choices = new ArrayList<>();
-        String choice;
-        do {
-            choice = sc.nextLine();
-            if (!choice.isEmpty()) {
-                choices.add(choice);
+
+        System.out.println("Enter the alternatives (choices), separated by commas:");
+        String choicesInput = sc.nextLine();
+        List<String> choices = Arrays.asList(choicesInput.split("\\s*,\\s*"));
+
+        System.out.println("Enter the factors, separated by commas:");
+        String factorsInput = sc.nextLine();
+        List<String> factorList = Arrays.asList(factorsInput.split("\\s*,\\s*"));
+        Map<String, Double> factors = new HashMap<>();
+
+        // Get factor weights
+        for (int i = 0; i < factorList.size(); i++) {
+            double weight = 10.0; // Default weight for the first factor
+            if (i > 0) {
+                System.out.println("If " + factorList.get(0) + " is a 10, how much more important is " + factorList.get(i) + "?");
+                weight = sc.nextDouble() * 10.0; // Scale weight relative to the first factor
             }
-        } while (!choice.isEmpty());
+            factors.put(factorList.get(i), weight);
+        }
 
-        System.out.println("Enter the factors ");
+        List<HashMap<String, Double>> decisionData = new ArrayList<>();
+        for (String choice : choices) {
+            HashMap<String, Double> choiceData = new HashMap<>();
+            System.out.println("Enter the factors for " + choice + ":");
+            for (String factor : factorList) {
+                System.out.println("Enter the value for " + factor + " (1-10):");
+                double value = sc.nextDouble();
+                choiceData.put(factor, value);
+            }
+            decisionData.add(choiceData);
+        }
 
-
-        return "";
+        return new Decision(problemStatement, choices, factors, decisionData);
     }
 
     // TODO: finish the implementation of the userOutput() method. Return a decision object

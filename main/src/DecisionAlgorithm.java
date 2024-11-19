@@ -1,82 +1,130 @@
 package main.src;
 
+import java.util.*;
+
 /**
  * Decision-Support-Program
  * CS3250 - MSU Fall 2024
  * @Author: Tony Sandoval
- * Description: Utility Class to implement the algorithm
+ * Description: Utility Class to implement the decision-making algorithm based on the Decision class.
  */
-
 public class DecisionAlgorithm {
+
     /**
-     * This is where the flowchart will be implemented
-     * // Step 2: Loop through each classroom and add a student to the assigned classroom objects
-     *         // Iterate to get all the classroom names(keys)
-     *         Iterable<String> classroomNames = classrooms.keySet();
-     *
-     *         // for loop to iterate through each classroom in the hashmap
-     *         for (String classroomName : classroomNames) {
-     *             int capacity = classrooms.get(classroomName).getCapacity();
-     *             Classroom current = classrooms.get(classroomName);
+     * Implements the decision support algorithm based on the Decision object.
+     * @param decision The Decision object containing problem statement, alternatives, factors, and decision data.
+     * @return A Map of alternatives and their normalized decision numbers.
      */
+    public static Map<String, Double> decisionSupport(Decision decision) {
+        // Extract factor names and alternative names
+        List<String> factorNames = new ArrayList<>(decision.getFactors().keySet());
+        List<String> alternativeNames = decision.getAlternatives();
 
-    // TODO: finish the implementation of the algorithm (flowchart)
-    public static String decisionSupport(String decision){
-        // get the object
-        // loop through every factor & sum the columns
-        Iterable<String> factors = decision.getFactors().keySet();
-        double sum = 0.0;
+        int numAlternatives = alternativeNames.size();
+        int numFactors = factorNames.size();
 
-        for (String factor: factors) {
-            double factorSum = decision.getFactors().get(factor);
+        // Build data array
+        double[][] data = new double[numAlternatives][numFactors];
+        List<HashMap<String, Double>> decisionData = decision.getDecisionData();
 
+        for (int i = 0; i < numAlternatives; i++) {
+            HashMap<String, Double> alternativeData = decisionData.get(i);
+            for (int j = 0; j < numFactors; j++) {
+                String factorName = factorNames.get(j);
+                double value = alternativeData.get(factorName);
+                data[i][j] = value;
+            }
         }
-        // hashmap to hold the sum of the columns
-        // calculateRatios()
-        // solveDecisionNumber()
-        // normalize data
-        // return a new hashmap with the choices and their normalized values
 
-        return "";
+        // Calculate ratios
+        double[][] ratios = calculateRatios(data);
+
+        // Get weights from factors
+        double[] weights = new double[numFactors];
+        for (int j = 0; j < numFactors; j++) {
+            String factorName = factorNames.get(j);
+            weights[j] = decision.getFactors().get(factorName);
+        }
+
+        // Solve decision numbers using ratios and weights
+        double[] decisionNumbers = solveDecisionNumbers(ratios, weights);
+
+        // Normalize decision numbers
+        double[] normalizedDecisionNumbers = normalize(decisionNumbers);
+
+        // Create a Map of alternatives and their normalized scores
+        Map<String, Double> result = new LinkedHashMap<>();
+        for (int i = 0; i < alternativeNames.size(); i++) {
+            result.put(alternativeNames.get(i), normalizedDecisionNumbers[i]);
+        }
+
+        return result;
     }
 
-    public static List<HashMap<String, Double>> calculateRatios(double[][] data) {
-        List<HashMap<String, Double>> ratioData = new ArrayList<>();
-
+    /**
+     * Calculates the ratios by dividing each element by the sum of its column.
+     * @param data A 2D array of original data.
+     * @return A 2D array of ratios.
+     */
+    public static double[][] calculateRatios(double[][] data) {
         int numRows = data.length;
         int numCols = data[0].length;
 
-        // Step 1: Calculate column sums
+        // Calculate column sums
         double[] columnSums = new double[numCols];
         for (int col = 0; col < numCols; col++) {
+            double sum = 0.0;
             for (int row = 0; row < numRows; row++) {
-                columnSums[col] += data[row][col];
+                sum += data[row][col];
             }
+            columnSums[col] = sum;
         }
 
-        // Step 2: Calculate ratios for each cell and store in HashMap
+        // Calculate ratios
+        double[][] ratios = new double[numRows][numCols];
         for (int row = 0; row < numRows; row++) {
-            HashMap<String, Double> rowRatios = new HashMap<>();
             for (int col = 0; col < numCols; col++) {
-                double ratio = data[row][col] / columnSums[col];
-                rowRatios.put("Column " + col, ratio);
+                ratios[row][col] = data[row][col] / columnSums[col];
             }
-            ratioData.add(rowRatios);
         }
 
-        return ratioData;
+        return ratios;
     }
 
-    private static double solveDecisionNumber() {
-        return 0.0;
+    /**
+     * Solves the decision numbers by summing the weighted ratios for each alternative.
+     * @param ratios A 2D array of ratios.
+     * @param weights An array of factor weights.
+     * @return An array of decision numbers.
+     */
+    public static double[] solveDecisionNumbers(double[][] ratios, double[] weights) {
+        int numRows = ratios.length;
+        int numCols = ratios[0].length;
+
+        double[] decisionNumbers = new double[numRows];
+        for (int row = 0; row < numRows; row++) {
+            double sum = 0.0;
+            for (int col = 0; col < numCols; col++) {
+                sum += ratios[row][col] * weights[col];
+            }
+            decisionNumbers[row] = sum;
+        }
+
+        return decisionNumbers;
     }
 
-
+    /**
+     * Normalizes an array of data by dividing each element by the maximum value.
+     * @param data An array of decision numbers.
+     * @return An array of normalized decision numbers.
+     */
     public static double[] normalize(double[] data) {
         double max = data[0];
         // Find the maximum value
         for (double num : data) {
-            if (num > max) {max = num;}
+            if (num > max) {
+                max = num;
+            }
         }
         // Normalize each value by dividing by the maximum
         double[] normalizedData = new double[data.length];

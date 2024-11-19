@@ -20,7 +20,7 @@ public class Decision {
 
     private String ProblemStatement;
     private List<String> alternatives; // to hold the different decisions
-    private Map<String, Double> factors; // to hold the different factors
+    public Map<String, Double> factors; // to hold the different factors
     // a dynamic list with a hashmap to represent each alternative with its own set of factors and weights
     private List<HashMap<String, Double>> decisionData = new ArrayList<>();
 

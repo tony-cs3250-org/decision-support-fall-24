@@ -1,5 +1,7 @@
 package main.src;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -47,17 +49,28 @@ public class Main {
      * This is where the private methods will live
      */
     // TODO: finish the implementation of the userInput() method. Return a decision object
-    private static String userInput() {
+    static String userInput() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter your problem statement: ");
         String problemStatement = sc.nextLine();
+        System.out.println("Enter the choices for your problem statement. Clic");
+        List<String> choices = new ArrayList<>();
+        String choice;
+        do {
+            choice = sc.nextLine();
+            if (!choice.isEmpty()) {
+                choices.add(choice);
+            }
+        } while (!choice.isEmpty());
+
+        System.out.println("Enter the factors ");
 
 
         return "";
     }
 
     // TODO: finish the implementation of the userOutput() method. Return a decision object
-    private static String userOutput() {
+    static String userOutput() {
         return "";
     }
 

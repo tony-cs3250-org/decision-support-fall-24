@@ -19,7 +19,7 @@ public class Decision {
      */
 
     private String ProblemStatement;
-    private List<String> alternatives; // to hold the different decisions
+    private List<String> choices; // to hold the different decisions
     private Map<String, Double> factors; // to hold the different factors
     // a dynamic list with a hashmap to represent each alternative with its own set of factors and weights
     private List<HashMap<String, Double>> decisionData = new ArrayList<>();
@@ -29,7 +29,7 @@ public class Decision {
 
     public Decision(String problemStatement, List<String> alternatives, Map<String, Double> factors, List<HashMap<String, Double>> decisionData) {
         ProblemStatement = problemStatement;
-        this.alternatives = alternatives;
+        this.choices = alternatives;
         this.factors = factors;
         this.decisionData = decisionData;
     }
@@ -43,11 +43,11 @@ public class Decision {
     }
 
     public List<String> getAlternatives() {
-        return alternatives;
+        return choices;
     }
 
     public void setAlternatives(List<String> alternatives) {
-        this.alternatives = alternatives;
+        this.choices = alternatives;
     }
 
     public Map<String, Double> getFactors() {
@@ -70,7 +70,7 @@ public class Decision {
     public java.lang.String toString() {
         return "Decision{" +
                 "ProblemStatement='" + ProblemStatement + '\'' +
-                ", alternatives=" + alternatives +
+                ", alternatives=" + choices +
                 ", factors=" + factors +
                 ", decisionData=" + decisionData +
                 '}';

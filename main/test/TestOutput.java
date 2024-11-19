@@ -1,1 +1,1 @@
-all the skripted shit goes here
+// all the skripted shit goes here

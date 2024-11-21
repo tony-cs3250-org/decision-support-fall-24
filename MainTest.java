@@ -1,6 +1,8 @@
 //package main.src;
-import org.junit.Test; // Import JUnit stuff
-import static org.junit.Assert.*; // Assertions to test if things work
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import java.io.ByteArrayInputStream; // For faking input
 import java.util.*; // For lists and maps
 

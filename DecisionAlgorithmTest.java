@@ -1,12 +1,12 @@
-import org.junit.Test; // For testing
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.Assert.*; // For checking stuff
 import java.util.*; // To use Maps and Lists
 
 public class DecisionAlgorithmTest {
 
-    @org.junit.jupiter.api.Test
+    @Test
     public void testDecisionSupport_ValidInput() {
         // Pretend there's a decision about choosing a car
         String problemStatement = "Choose a car";

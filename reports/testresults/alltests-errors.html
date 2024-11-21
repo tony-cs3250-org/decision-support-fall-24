@@ -1,0 +1,176 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Unit Test Results: All Errors</title>
+        <link rel="stylesheet" type="text/css" title="Style" href="stylesheet.css">
+    </head>
+    <body onload="open('allclasses-frame.html','classListFrame')">
+        <h1>Unit Test Results.</h1>
+        <table width="100%">
+            <tr>
+                <td align="left"></td><td align="right">Designed for use with <a href="https://www.junit.org/">JUnit</a> and <a href="https://ant.apache.org/">Ant</a>.</td>
+            </tr>
+        </table>
+        <hr size="1">
+        <h2>All Errors</h2>
+        <table class="details" border="0" cellpadding="5" cellspacing="2" width="95%">
+            <tr valign="top">
+                <th>Class</th><th>Name</th><th>Status</th><th width="80%">Type</th><th nowrap>Time(s)</th>
+            </tr>
+            <tr valign="top" class="Error">
+                <td><a href="/0_JUnit Jupiter.html">JUnit Jupiter</a></td><td><a name="testUserInput_EmptyFactors()"></a><a href="/0_JUnit Jupiter.html#testUserInput_EmptyFactors()">testUserInput_EmptyFactors()</a></td><td>Error</td><td>N/A
+                    <br>
+                    <br>
+                    <code>java.util.NoSuchElementException
+                        <br>
+                        	at java.base/java.util.Scanner.throwFor(Scanner.java:962)
+                        <br>
+                        	at java.base/java.util.Scanner.next(Scanner.java:1619)
+                        <br>
+                        	at java.base/java.util.Scanner.nextDouble(Scanner.java:2590)
+                        <br>
+                        	at Main.userInput(Main.java:81)
+                        <br>
+                        	at MainTest.testUserInput_EmptyFactors(MainTest.java:59)
+                        <br>
+                        	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+                        <br>
+                        	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+                        <br>
+                        	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:688)
+                        <br>
+                        	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+                        <br>
+                        	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+                        <br>
+                        	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:149)
+                        <br>
+                        	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:140)
+                        <br>
+                        	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:84)
+                        <br>
+                        	at org.junit.jupiter.engine.execution.ExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(ExecutableInvoker.java:115)
+                        <br>
+                        	at org.junit.jupiter.engine.execution.ExecutableInvoker.lambda$invoke$0(ExecutableInvoker.java:105)
+                        <br>
+                        	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+                        <br>
+                        	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+                        <br>
+                        	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+                        <br>
+                        	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+                        <br>
+                        	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:104)
+                        <br>
+                        	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:98)
+                        <br>
+                        	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$6(TestMethodTestDescriptor.java:210)
+                        <br>
+                        	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+                        <br>
+                        	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:206)
+                        <br>
+                        	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:131)
+                        <br>
+                        	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:65)
+                        <br>
+                        	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:139)
+                        <br>
+                        	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+                        <br>
+                        	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:129)
+                        <br>
+                        	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+                        <br>
+                        	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:127)
+                        <br>
+                        	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+                        <br>
+                        	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:126)
+                        <br>
+                        	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:84)
+                        <br>
+                        	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+                        <br>
+                        	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+                        <br>
+                        	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:143)
+                        <br>
+                        	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+                        <br>
+                        	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:129)
+                        <br>
+                        	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+                        <br>
+                        	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:127)
+                        <br>
+                        	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+                        <br>
+                        	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:126)
+                        <br>
+                        	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:84)
+                        <br>
+                        	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+                        <br>
+                        	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+                        <br>
+                        	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:143)
+                        <br>
+                        	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+                        <br>
+                        	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:129)
+                        <br>
+                        	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+                        <br>
+                        	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:127)
+                        <br>
+                        	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+                        <br>
+                        	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:126)
+                        <br>
+                        	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:84)
+                        <br>
+                        	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32)
+                        <br>
+                        	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+                        <br>
+                        	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51)
+                        <br>
+                        	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:108)
+                        <br>
+                        	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
+                        <br>
+                        	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
+                        <br>
+                        	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+                        <br>
+                        	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+                        <br>
+                        	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:96)
+                        <br>
+                        	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:75)
+                        <br>
+                        	at org.junit.platform.console.tasks.ConsoleTestExecutor.executeTests(ConsoleTestExecutor.java:66)
+                        <br>
+                        	at org.junit.platform.console.tasks.ConsoleTestExecutor.lambda$execute$0(ConsoleTestExecutor.java:58)
+                        <br>
+                        	at org.junit.platform.console.tasks.CustomContextClassLoaderExecutor.invoke(CustomContextClassLoaderExecutor.java:33)
+                        <br>
+                        	at org.junit.platform.console.tasks.ConsoleTestExecutor.execute(ConsoleTestExecutor.java:58)
+                        <br>
+                        	at org.junit.platform.console.ConsoleLauncher.executeTests(ConsoleLauncher.java:95)
+                        <br>
+                        	at org.junit.platform.console.ConsoleLauncher.execute(ConsoleLauncher.java:73)
+                        <br>
+                        	at org.junit.platform.console.ConsoleLauncher.execute(ConsoleLauncher.java:50)
+                        <br>
+                        	at org.junit.platform.console.ConsoleLauncher.execute(ConsoleLauncher.java:43)
+                        <br>
+                        	at org.junit.platform.console.ConsoleLauncher.main(ConsoleLauncher.java:37)
+                        <br>
+                    </code></td><td>0.009</td>
+            </tr>
+        </table>
+    </body>
+</html>

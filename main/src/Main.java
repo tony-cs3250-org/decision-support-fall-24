@@ -29,10 +29,13 @@ public class Main {
         Decision userInputProblem = userInput();
 
         // This is where the object will be passed into the algorithm solver
-        // decision = DecisionAlgorithm.decisionSupport(userInputProblem);
+        //userInputProblem = DecisionAlgorithm.decisionSupport(userInputProblem);
+        Map<String, Double> results = DecisionAlgorithm.decisionSupport(userInputProblem);
+
 
         // return the solution
         System.out.println("Here is the best decision: " + userInputProblem.toString());
+        System.out.println("Here is the best decision: " + results.toString());
         // TODO: format the solution to print out
 
 
@@ -66,7 +69,7 @@ public class Main {
             double weight = 10.0; // Default weight for the first factor
             if (i > 0) {
                 System.out.println("If " + factorList.get(0) + " is a 10, how much more important is " + factorList.get(i) + "?");
-                weight = sc.nextDouble() * 10.0; // Scale weight relative to the first factor
+                weight = sc.nextDouble();
             }
             factors.put(factorList.get(i), weight);
         }
@@ -87,6 +90,7 @@ public class Main {
     }
 
     // TODO: finish the implementation of the userOutput() method. Return a decision object
+
     static String userOutput() {
         return "";
     }

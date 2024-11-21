@@ -1,5 +1,7 @@
-import org.junit.Test; // For testing
-import static org.junit.Assert.*; // For checking stuff
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import java.util.*; // To use Maps and Lists
 
 public class DecisionAlgorithmTest {

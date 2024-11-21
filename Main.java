@@ -32,7 +32,7 @@ public class Main {
 
 
         // return the solution
-        System.out.println("Here is the best decision: " + userInputProblem.toString());
+        System.out.println("Your input: " + userInputProblem.toString());
         System.out.println("Here is the best decision: " + results.toString());
         // TODO: format the solution to print out
 

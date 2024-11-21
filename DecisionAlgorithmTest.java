@@ -1,10 +1,12 @@
 import org.junit.Test; // For testing
+import org.junit.jupiter.api.Test;
+
 import static org.junit.Assert.*; // For checking stuff
 import java.util.*; // To use Maps and Lists
 
 public class DecisionAlgorithmTest {
 
-    @Test
+    @org.junit.jupiter.api.Test
     public void testDecisionSupport_ValidInput() {
         // Pretend there's a decision about choosing a car
         String problemStatement = "Choose a car";

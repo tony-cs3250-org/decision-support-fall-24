@@ -1,24 +1,27 @@
-//package main.src;
-import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 import org.junit.jupiter.api.Test;
 import java.io.ByteArrayInputStream; // For faking input
-import java.util.*; // For lists and maps
+import java.util.Arrays; // For lists
+import java.util.HashMap; // For maps
+import java.util.List;
+import java.util.Map;
+import java.util.InputMismatchException;
 
 public class MainTest {
 
     @Test
     public void testUserInput_ValidInput() {
         // Pretend someone is typing this into the console
-        String simulatedInput = "Choose a programming language\n" +
-                "Java, Python, C++\n" +
-                "Ease of Learning, Popularity, Performance\n" +
-                "5\n" +  // Popularity weight
-                "8\n" +  // Performance weight
-                "7\n8\n9\n" +  // Java scores
-                "6\n9\n8\n" +  // Python scores
-                "4\n6\n10\n";  // C++ scores
+        String simulatedInput = "Choose a programming language\n"
+                + "Java, Python, C++\n"
+                + "Ease of Learning, Popularity, Performance\n"
+                + "5\n" // Popularity weight
+                + "8\n" // Performance weight
+                + "7\n8\n9\n" // Java scores
+                + "6\n9\n8\n" // Python scores
+                + "4\n6\n10\n"; // C++ scores
 
         System.setIn(new ByteArrayInputStream(simulatedInput.getBytes())); // Make System.in use this fake input
 
@@ -39,19 +42,19 @@ public class MainTest {
         assertEquals(expectedFactors, result.getFactors());
 
         // Make sure the decision data is saved right
-        List<Map<String, Double>> expectedDecisionData = new ArrayList<>();
-        expectedDecisionData.add(Map.of("Ease of Learning", 7.0, "Popularity", 8.0, "Performance", 9.0));
-        expectedDecisionData.add(Map.of("Ease of Learning", 6.0, "Popularity", 9.0, "Performance", 8.0));
-        expectedDecisionData.add(Map.of("Ease of Learning", 4.0, "Popularity", 6.0, "Performance", 10.0));
+        List<Map<String, Double>> expectedDecisionData = List.of(
+                Map.of("Ease of Learning", 7.0, "Popularity", 8.0, "Performance", 9.0),
+                Map.of("Ease of Learning", 6.0, "Popularity", 9.0, "Performance", 8.0),
+                Map.of("Ease of Learning", 4.0, "Popularity", 6.0, "Performance", 10.0));
         assertEquals(expectedDecisionData, result.getDecisionData());
     }
 
     @Test
     public void testUserInput_EmptyFactors() {
         // Pretend input where no factors are given
-        String simulatedInput = "Choose a programming language\n" +
-                "Java, Python, C++\n" +
-                "\n"; // No factors
+        String simulatedInput = "Choose a programming language\n"
+                + "Java, Python, C++\n"
+                + "\n"; // No factors
 
         System.setIn(new ByteArrayInputStream(simulatedInput.getBytes())); // Fake input again
 
@@ -72,10 +75,10 @@ public class MainTest {
     @Test
     public void testUserInput_InvalidWeight() {
         // Simulate bad input for a factor weight
-        String simulatedInput = "Choose a programming language\n" +
-                "Java, Python, C++\n" +
-                "Ease of Learning, Popularity\n" +
-                "invalid\n"; // The user types something that isn't a number
+        String simulatedInput = "Choose a programming language\n"
+                + "Java, Python, C++\n"
+                + "Ease of Learning, Popularity\n"
+                + "invalid\n"; // The user types something that isn't a number
 
         System.setIn(new ByteArrayInputStream(simulatedInput.getBytes()));
 
